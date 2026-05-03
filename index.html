@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librería Anita</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4a90e2, #6fc3ff);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: white;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: #4a90e2;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #357abd;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📚 Librería Anita</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Todo para tu año escolar</h2>
+    <p>Cuadernos, útiles, libros y más al mejor precio</p>
+    <a href="#productos" class="btn">Ver productos</a>
+  </section>
+
+  <section id="productos" class="section">
+    <h3>Nuestros Productos</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>Cuadernos</h4>
+        <p>Gran variedad de diseños y tamaños</p>
+      </div>
+      <div class="card">
+        <h4>Lápices y colores</h4>
+        <p>Calidad para todas las edades</p>
+      </div>
+      <div class="card">
+        <h4>Mochilas</h4>
+        <p>Resistentes y modernas</p>
+      </div>
+      <div class="card">
+        <h4>Libros escolares</h4>
+        <p>Material educativo actualizado</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section contact">
+    <h3>Contacto</h3>
+    <p>📍 Dirección: Tu ciudad</p>
+    <p>📞 Teléfono: +56 9 1234 5678</p>
+    <p>📧 Email: contacto@libreriaanita.cl</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Librería Anita - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
