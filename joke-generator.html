@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #joke { margin: 20px; font-size: 24px; }
+        button { padding: 10px; font-size: 16px; }
+        .favorites { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Random Joke Generator</h1>
+    <div id="joke">Press the button for a joke!</div>
+    <button id="fetch-joke">Get New Joke</button>
+    <button id="share-joke">Share Joke</button>
+    <button id="favorite-joke">Add to Favorites</button>
+    <div class="favorites">
+        <h2>Favorites</h2>
+        <ul id="favorites-list"></ul>
+    </div>
+    <script>
+        const jokeElement = document.getElementById('joke');
+        const fetchJokeButton = document.getElementById('fetch-joke');
+        const favoritesList = document.getElementById('favorites-list');
+        let favorites = [];
+
+        async function fetchJoke() {
+            const response = await fetch('https://api.jokes.one/jod');
+            const data = await response.json();
+            return data.contents.jokes[0].joke.text;
+        }
+
+        fetchJokeButton.addEventListener('click', async () => {
+            jokeElement.innerText = 'Loading...';
+            const joke = await fetchJoke();
+            jokeElement.innerText = joke;
+        });
+
+        document.getElementById('share-joke').addEventListener('click', () => {
+            navigator.share({
+                title: 'Joke',
+                text: jokeElement.innerText,
+            });
+        });
+
+        document.getElementById('favorite-joke').addEventListener('click', () => {
+            favorites.push(jokeElement.innerText);
+            updateFavorites();
+        });
+
+        function updateFavorites() {
+            favoritesList.innerHTML = '';
+            favorites.forEach((joke) => {
+                const li = document.createElement('li');
+                li.innerText = joke;
+                favoritesList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
